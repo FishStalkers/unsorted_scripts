@@ -1,1 +1,2 @@
-hi first change
+2/12/24
+Before I include the improvements I made to the script, I want to run the scripts with the datasets to record the expected output. After recording the output, I will upload my edits to the github.
