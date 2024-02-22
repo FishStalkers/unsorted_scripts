@@ -8,9 +8,6 @@ Overview:
 - spent hours downloading data and debugging, relayed information to Veena
 
 02/22/2024
-- talked to Veena to pick up wherever she left off at the end of her research hours
-- continued working on the other files
-- realized we don't have the data to work on 3/5 files that are part of week 1 scripts
-- trying to run my own version of the other 2/5 files, facing various bugs with loading the dataset from my local disk currently
-- updated the combine_51_object.py file to finally work on my own laptop
-- working on optimizations for either scripts
+2 script uploads from this work session:
+- 1. combine_51_object.py: this is the running version of the python script that is finally compatible with my local computer. It also has my comments about the script and its functionality in accordance with the steps of the directed research program
+- 2. optimized_combine_51_object.py: this is the in progress optimized version of the combine_51_object.py file where I've tried to make the script more efficient and easier to read
