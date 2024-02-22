@@ -1,0 +1,14 @@
+Detailed document regarding my research hours: https://docs.google.com/document/d/16oQrmIECdl2sFpY9hsPkMOaUECYwszmhT_6yGBsGG54/edit
+
+Overview:
+02/15/2024
+- understood my role, read through all the python scripts
+- talked to veena to get project updates from her previous research hours
+- had multiple issues with scripts because my local computer was being unable to run pip install command
+- spent hours downloading data and debugging, relayed information to Veena
+
+02/22/2024
+- talked to Veena to pick up wherever she left off at the end of her research hours
+- continued working on the other files
+- realized we don't have the data to work on 3/5 files that are part of week 1 scripts
+- trying to run my own version of the other 2/5 files, facing various bugs with loading the dataset from my local disk currently
