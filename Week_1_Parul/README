@@ -12,3 +12,5 @@ Overview:
 - continued working on the other files
 - realized we don't have the data to work on 3/5 files that are part of week 1 scripts
 - trying to run my own version of the other 2/5 files, facing various bugs with loading the dataset from my local disk currently
+- updated the combine_51_object.py file to finally work on my own laptop
+- working on optimizations for either scripts
