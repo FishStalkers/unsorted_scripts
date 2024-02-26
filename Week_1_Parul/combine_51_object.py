@@ -12,13 +12,16 @@ import fiftyone as fo
 import fiftyone.zoo as foz
 import fiftyone.utils.random as four
 
-# updating the way this dataset is loaded because it needs to belong to the fiftyOne internal database before it can be loaded for this python script
-dataset = fo.Dataset.from_dir(
-    dataset_dir = r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\my-detection-dataset",
-    dataset_type = fo.types.FiftyOneDataset,
-    name="my-detection-dataset"
-)
-dataset = fo.load_dataset("my-detection-dataset")
+#optimization 1: creating a function that will load a dataset into FiftyOne's internal database from a specified local directory
+def load_dataset_from_dir(directory, dataset_name):
+    dataset = fo.Dataset.from_dir(
+        dataset_dir=directory,
+        dataset_type=fo.types.FiftyOneDataset,
+        name=dataset_name
+    )
+    return fo.load_dataset(dataset_name)
+
+load_dataset_from_dir(r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\my-detection-dataset", "my-detection-dataset")
 
 # Initialize lists to store unique image file paths and their IDs.
 img=[]
@@ -53,18 +56,22 @@ filtered_dataset.save()
 import fiftyone as fo
 
 # Create the dataset
-master_dataset = fo.Dataset.from_dir(
-    dataset_dir = r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\master_dataset",
-    dataset_type = fo.types.FiftyOneDataset,
-    name="master_dataset",
-)
+# master_dataset = fo.Dataset.from_dir(
+#     dataset_dir = ,
+#     dataset_type = fo.types.FiftyOneDataset,
+#     name="master_dataset",
+# )
 
-dataset = fo.Dataset.from_dir(
-    dataset_dir = r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\mc_singlenuc_fo",
-    dataset_type = fo.types.FiftyOneDataset,
-    name="mc_singlenuc_fo"
-)
-dataset = fo.load_dataset("mc_singlenuc_fo")
+load_dataset_from_dir(r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\master_dataset", "master_dataset")
+
+# dataset = fo.Dataset.from_dir(
+#     dataset_dir = r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\mc_singlenuc_fo",
+#     dataset_type = fo.types.FiftyOneDataset,
+#     name="mc_singlenuc_fo"
+# )
+# dataset = fo.load_dataset("mc_singlenuc_fo")
+
+load_dataset_from_dir(r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\mc_singlenuc_fo", "mc_singlenuc_fo")
 
 # View summary info about the dataset
 print(dataset)
@@ -101,7 +108,18 @@ master1_dataset = fo.Dataset()
 
 # Load a CSV file containing additional annotations.
 csv_file_path = r"C:\Users\parul\OneDrive - Georgia Institute of Technology\Documents\mcgrath_research\data_week_1\week1_data\Fish_Reflection_Annotations_old.csv"
+
+#optimization 2: using pandas more efficiently:
 old_df = pd.read_csv(csv_file_path)
+
+# Convert 'imageID' to string to ensure consistent matching
+old_df['imageID'] = old_df['imageID'].astype(str)
+
+# Create dictionaries for quick lookup of annotator and image_type by imageID
+annotator_dict = old_df.set_index('imageID')['annotator'].to_dict()
+image_type_dict = old_df.set_index('imageID')['image_type'].to_dict()
+
+
 dataset = fo.load_dataset("my-detection-dataset")
 image_id=[]
 empty=[]
