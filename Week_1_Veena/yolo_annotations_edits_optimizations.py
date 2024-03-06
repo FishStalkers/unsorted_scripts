@@ -4,7 +4,7 @@ from fiftyone import ViewField as F
 import pandas as pd
 import fiftyone.zoo as foz
 import fiftyone.utils.random as four
-
+#add description of what kinds of data this scripts works with 
 # function to load dataset
 def load_dataset(dataset_dir, dataset_name):
     return fo.Dataset.from_dir(
@@ -12,6 +12,8 @@ def load_dataset(dataset_dir, dataset_name):
         dataset_type=fo.types.FiftyOneDataset,
         name=dataset_name,
     )
+#note
+#this is too short to require a function
 
 # function to create filtered dataset
 def process_dataset(dataset):
