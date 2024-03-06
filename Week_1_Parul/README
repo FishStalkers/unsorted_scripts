@@ -11,3 +11,4 @@ Overview:
 2 script uploads from this work session:
 - 1. combine_51_object.py: this is the running version of the python script that is finally compatible with my local computer. It also has my comments about the script and its functionality in accordance with the steps of the directed research program
 - 2. optimized_combine_51_object.py: this is the in progress optimized version of the combine_51_object.py file where I've tried to make the script more efficient and easier to read
+3/6/24-Bree I dont see the optimized script
