@@ -1,2 +1,5 @@
 03/15/2024
 - used Bree's updated directed research script tasks document to reorganize my scripts for this week
+- debugged the cvat_analysis.py file (this took a while because of a lot of incompatibilities I worked through
+- then began optimizing through importing and using new packages and implementing functions for repeated code
+- currently debugging my optimizations (more detail in my google doc), will pass this on to Veena for her hours on Monday
