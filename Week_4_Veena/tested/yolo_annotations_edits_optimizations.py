@@ -13,15 +13,14 @@ def load_dataset(dataset_dir, dataset_name):
         dataset_type=fo.types.FiftyOneDataset,
         name=dataset_name,
     )
-# This function remove duplicate samples from a dataset based on filepaths. The input is a FiftyOne dataset object and the return type is a new FiftyOne dataset object with unique data.
+# Otimization: This function removes duplicate samples from a dataset based on filepaths. The input is a FiftyOne dataset object and the return type is a new FiftyOne dataset object with unique data.
 def process_dataset(dataset):
     filtered_samples = fo.SampleCollection(dataset)
     filtered_samples = filtered_samples.distinct("filepath")
     filtered_dataset = filtered_samples.to_dataset()
     return filtered_dataset
 
-# function to create filtered dataset
-'''
+# function to create filtered dataset.
 def process_dataset(dataset):
     img_paths = []
     img_ids = []
@@ -40,7 +39,7 @@ def process_dataset(dataset):
     filtered_dataset.save()
 
     return filtered_dataset
-'''
+
 def main():
     dataset_dir = r"C:\Users\veena\Downloads\week1_data\week1_data"
     dataset = load_dataset(dataset_dir + "\my-detection-dataset", "my_detection_dataset")
@@ -135,9 +134,9 @@ def main():
     count2=0
     for i in master_dataset:
         if i.predict_MF==None:
-            count1+=1
+            count1 += 1
         else:
-            count2+=1
+            count2 += 1
         
     count = 0
     for sub in missing_dataset:

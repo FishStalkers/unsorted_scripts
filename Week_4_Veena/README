@@ -1,0 +1,18 @@
+3/11/24
+- (yolo_annotations_edits_optimizations.py) Based on Bree's review, I added comments describing the new functions I made. The description describes the functionality and includes parameters and return types. I also used a new type of collection to optimize the code to filter duplicates.
+- temp_commented.py is almost the same exact code as cvat_analysis_optimized.py so will focus on optimizing cvat_analysis_optimized.py
+- to clarify my earlier comment, for make_dataframe_commented.py, there was this line of code (df.track_length.min()). However, the AllTrackedFish.csv does not have this column. Therefore, I looked at the way track_length was defined in cvat_analysis_optimized.py and defined it similarily. See lines 21-22.
+- I am having trouble installing tensorflow on my local computer which I need for test_commented.py and tried debugging.
+- Made optimizations to make_dataframe_commented.py to simplify/consolidate the code
+- Made optimizations to cvat_analysis_optimized.py as noted in the comments but am still struggling to successfuly run the file
+- Not getting the same error as Parul, but am facing the following error on the last line of cvat_analysis_optimized.py
+  File "c:\Users\veena\Downloads\unsorted_scripts\Week_4_Veena\tested\cvat_analysis_optimized.py", line 201, in sub_df.groupby(['trialid', annotator1])[[annotator2,annotator3]].count()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\veena\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\groupby\generic.py", line 1951, in __getitem__
+    return super().__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\veena\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\core\base.py", line 239, in __getitem__
+    raise KeyError(f"Columns not found: {str(bad_keys)[1:-1]}")
+KeyError: "Columns not found: 'Tucker'"
+- shortened_vis.py has imports that I am unable to install and can't find anything about these imports online too
+- runcompare_old_new_commented.py uses the cichlid bower tracking module which is difficult to incorporate but will look into this further during my next hours
